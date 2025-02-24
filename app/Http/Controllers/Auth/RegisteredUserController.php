@@ -39,6 +39,11 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'street' => null,  // Setting the new address fields to NULL
+            'house_nr' => null,
+            'postal_code' => null,
+            'city' => null,
+            'phone_number' => null,
         ]);
 
         event(new Registered($user));
