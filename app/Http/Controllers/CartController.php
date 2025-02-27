@@ -7,9 +7,7 @@ use App\Models\Product;
 
 class CartController extends Controller
 {
-    /**
-     * Show the cart items.
-     */
+    // Show the cart items
     public function index(Request $request)
     {
         // Retrieve cart from session, or set to empty array if none
@@ -18,9 +16,7 @@ class CartController extends Controller
         return view('cart.index', compact('cart'));
     }
 
-    /**
-     * Add an item to the cart.
-     */
+    // Add an item to the cart
     public function add(Request $request)
     {
         // Validate the incoming request
@@ -53,9 +49,7 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success', 'Product added to cart!');
     }
 
-    /**
-     * Remove an item from the cart.
-     */
+    // Remove an item from the cart
     public function remove(Request $request)
     {
         // Validate product_id
@@ -74,9 +68,7 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success', 'Product removed from cart!');
     }
 
-    /**
-     * Clear the entire cart.
-     */
+    // Clear the entire cart
     public function clear(Request $request)
     {
         $request->session()->forget('cart');

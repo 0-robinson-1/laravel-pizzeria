@@ -10,9 +10,7 @@ use Carbon\Carbon;
 
 class CheckoutController extends Controller
 {
-    /**
-     * Display the checkout page with cart contents + address/payment form.
-     */
+    // Display the checkout page with cart contents + address/payment form
     public function showCheckoutForm(Request $request)
     {
         // Retrieve cart from session
@@ -32,9 +30,7 @@ class CheckoutController extends Controller
         ]);
     }
 
-    /**
-     * Finalize the purchase (Create order + order details).
-     */
+    // Finalize the purchase (Create order + order details)
     public function finalizePurchase(Request $request)
     {
         // 1. Validate form data (delivery address, payment, etc.)

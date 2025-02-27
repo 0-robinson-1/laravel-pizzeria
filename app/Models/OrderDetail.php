@@ -9,7 +9,7 @@ class OrderDetail extends Model
 {
     use HasFactory;
     
-    // If your table name is something other than the default 'order_details',
+    // If table name is something other than the default 'order_details',
     // uncomment and set the correct table name:
     // protected $table = 'order_details';
 
@@ -27,17 +27,13 @@ class OrderDetail extends Model
         // 'remarks', etc. if applicable
     ];
 
-    /**
-     * An order detail belongs to one order.
-     */
+    // An order detail belongs to one order
     public function order()
     {
         return $this->belongsTo(Order::class, 'order_id', 'order_id');
     }
 
-    /**
-     * An order detail usually references a product.
-     */
+    // An order detail usually references a product
     public function product()
     {
         return $this->belongsTo(Product::class, 'product_id', 'product_id');
